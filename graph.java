@@ -1,55 +1,70 @@
 package com.mycompany.graph_drawing;
-
-import java.util.Scanner;
-
-public class graph
+public class graph implements nodee
 {
-    int INFINITY             = Integer.MAX_VALUE;
-    int[] distance           = new int[1000];
-    public int[] visited     = new int[1000];
-    boolean[] spt            = new boolean[1000];
-    public static int[][] adj_graph = new int[1000][1000];
+    public int INFINITY = Integer.MAX_VALUE;
+    public int[] distance = new int[1000];
+    public int[] visited = new int[1000];
+    public boolean[] spt            = new boolean[1000];
+    protected static int[][] adj_graph = new int[1000][1000];
     protected static int nodenumber, eadges, num_of_connected_nodes = 0;
+   
 
     //////--------------------------------- this is constructor for the class  -------------------------------------------
-    public graph(int nodenumber, int eadges) { this.nodenumber = nodenumber; this.eadges = eadges;}
+    public graph(int nodenumber, int eadges) { graph.nodenumber = nodenumber; graph.eadges = eadges;}
 
 
-   
+   //int j;
 
     //----------------------- this method to clear the adj_matrix of graph
     public void clear()
     {
         for (int i = 0; i < nodenumber; i++)
         {
+             
             for (int j = 0; j < nodenumber; j++)
             {
-                adj_graph[i][j] = 0;
-            }
-        }
-    }
+                if(adj_graph[i][j]==-1)
+                continue;
+                else
+                    adj_graph[i][j]=0;
+                    
+                
+                    
+               
+              } 
+                }
+            }  
+            
+        
+
+    
     //------------------------------   to display the adj_matrix of the  graph
+   @Override
     public void displaymatrix()
     {
         for (int i = 0; i < nodenumber; i++)
         {
             for (int j = 0; j < nodenumber; j++)
             {
-                if(adj_graph[i][j]==-1)
-                    System.out.print(  " * ");
-                else
-                System.out.print(adj_graph[i][j] + "  ");
+               if(adj_graph[i][j]==-1)
+                   System.out.print( "* ");
+              
+                
+               else System.out.print(adj_graph[i][j] + "  ");
             }
             System.out.println(" ");
         }
     }
+    
+    
+    
     //-------------------------   this method to check if the graph is totaly connected or not
     public int dfs(int root)
     {
         visited[root] = 1;
         for (int i = 0; i < nodenumber; i++)
         {
-            if (adj_graph[root][i] > 0 && (visited[i] == 0))
+            if ((visited[i] == 0))
             {
                 return dfs(i) + 1;
             }
@@ -98,10 +113,23 @@ public class graph
             }
         }
         System.out.println("Dijkstra Algorithm: (Adjacency Matrix)");
-        if( distance[distination-1] == 2147483647 ){System.out.print(" Mafe4 Taree2 ya pa4a  ");
-        System.out.println("\uD83D\uDE00");}
+        if( distance[distination-1] == 2147483647 )
+        {
+        System.out.print(" Mafe4 Taree2 ya pa4a  ");
+        System.out.println("\uD83D\uDE00");
+        }
         else
-        System.out.println("Source Vertex: " + (sourceVertex +1) + " to vertex " + +(distination )
+        System.out.println("Source Vertex: " + (sourceVertex +1) + " to vertex "  +(distination )
                 + " distance: " + distance[distination-1]);
+    }
+
+    @Override
+    public void add_node() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void popnode() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

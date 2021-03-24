@@ -1,21 +1,27 @@
 package com.mycompany.graph_drawing;
 import java.util.Scanner;
+
 public class main
 {
     public static void main(String[] args)
     {
         Scanner input = new Scanner(System.in);
-        int nodenumber, eadges_num,root,distination;
+        
+        int nodenumber, edges_num,root,distination;
+        
         System.out.println("Enter  the number of nodes you need");
         nodenumber = input.nextInt();
+        
         System.out.println("Enter  the number of eadges you need");
-        eadges_num = input.nextInt();
-        graph new_graph = new graph(nodenumber, eadges_num);
-        new_graph.clear();
-        eadges neweadge = new eadges(nodenumber, eadges_num);
-        nodeee jj= new nodeee();
-        new_graph.adj_graph = neweadge.adj_graph;
-        neweadge.input(eadges_num);
+        edges_num = input.nextInt();
+        
+        graph new_graph = new graph(nodenumber, edges_num);
+        
+        //new_graph.clear();
+        eadges neweadge = new eadges(nodenumber, edges_num);
+        nodeee new_node= new nodeee();
+        //new_graph.adj_graph = neweadge.adj_graph;
+        neweadge.input(edges_num);
         int query_type=0;
         while (query_type!=10)
         {
@@ -35,10 +41,10 @@ public class main
             switch (query_type)
             {
                 case 1:
-                    jj.add_node();
+                    new_node.add_node();
                     break;
                 case 2:
-                    jj.popnode();
+                    new_node.popnode();
                     break;
                 case 3:
                     neweadge.add_edge();
@@ -59,7 +65,7 @@ public class main
                     new_graph.dijkstra(root-1,distination);
                     break;
                 case 8:
-                    neweadge.showchildren();
+                    neweadge.displaymatrix();
                     break;
                 case 9:
                     System.out.println("Enter any node to be root of traverse algorithm");
@@ -68,7 +74,7 @@ public class main
                     {
                         new_graph.visited[i]=0;
                     }
-                    if(new_graph.dfs(root-1)+1==new_graph.nodenumber)
+                    if(new_graph.dfs(root-1)+1==graph.nodenumber)
                         System.out.println("connected graph ");
                     else
                         System.out.println("is not full connected graph");

@@ -1,5 +1,4 @@
 package com.mycompany.graph_drawing;
-
 import static com.mycompany.graph_drawing.eadges.checkofdeletednode;
 import static com.mycompany.graph_drawing.eadges.checkofnode;
 import static com.mycompany.graph_drawing.graph.nodenumber;
@@ -8,13 +7,7 @@ import java.util.Scanner;
 
 
 public class nodeee implements nodee
-{
-    //public int[][] adj_graph = new int[1000][1000];
-    
-      
-     
-       
-        
+{  
   @Override
    public void add_node()
     {
@@ -50,6 +43,7 @@ public class nodeee implements nodee
             System.out.println("this node is created before");
         }
     }
+   @Override
          public void popnode()
          {
               Scanner input = new Scanner(System.in);
@@ -64,4 +58,10 @@ public class nodeee implements nodee
             adj_graph [deletednode][i]=-1;
         }
          }
+
+    @Override
+    public void displaymatrix() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
