@@ -94,6 +94,8 @@ public class eadges extends graph implements nodee
 
  public void displayChildren()
 {
+    try 
+    {
     int counter = 0;
      ///// alert  return to this function handling if the edge if is already created (tomorrow);
     Scanner input = new Scanner(System.in);
@@ -128,6 +130,12 @@ public class eadges extends graph implements nodee
     {
         System.out.println("This node isn't created or deleted!!");
     }
+    }
+    catch(Exception e)
+    {
+         System.out.println("you must enter positive numbers for nodes!!!!!!!!"); 
+    }
+            
 }
 
     @Override
