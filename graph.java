@@ -42,6 +42,7 @@ public class graph
             }
             System.out.println(" ");
         }
+     
     }
 
     //-------------------------   this method to check if the graph is totaly connected or not
@@ -56,7 +57,8 @@ public class graph
     }
 
     // -----------------------------------  minimum node  --------------------------------------------
-    public int minimumnode(boolean[] mst, int[] arr) {
+    public int minimumnode(boolean[] mst, int[] arr) 
+    {
         int mini = INFINITY, vertex = 0;
         for (int i = 0; i < nodenumber; i++) {
             if (mst[i] == false && mini > arr[i]) {
@@ -78,7 +80,8 @@ public class graph
             for (int i = 0; i < nodenumber; i++) {
                 int node1 = minimumnode(spt, distance);
                 spt[node1] = true;
-                for (int node2 = 0; node2 <= nodenumber; node2++) {
+                //////////////كلم هشام علي يساوي الي في اللوب
+                for (int node2 = 0; node2 < nodenumber; node2++) {
                     if (adj_graph[node1][node2] > 0 && adj_graph[node1][node2] != INFINITY) {
                         if (spt[node2] == false) {
                             int newKey = adj_graph[node1][node2] + distance[node1];
@@ -91,7 +94,7 @@ public class graph
             }
             System.out.println("Dijkstra Algorithm: (Adjacency Matrix)");
             if (distance[distination - 1] == 2147483647) {
-                System.out.print(" Mafe4 Taree2 ya pa4a  ");
+                System.out.println(" Mafe4 Taree2 ya pa4a  ");
                 System.out.println("\uD83D\uDE00");
             } else {
                 System.out.println("Source Vertex: " + (sourceVertex + 1) + " to vertex " + (distination)

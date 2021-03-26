@@ -1,7 +1,5 @@
 package com.mycompany.graph_drawing;
 
-//import static com.mycompany.graph_drawing.nodeee.checkofdeletednode;
-//import static com.mycompany.graph_drawing.nodeee.checkofnode;
 import java.util.*;
 
 public class eadges extends graph implements nodee
@@ -68,45 +66,69 @@ public class eadges extends graph implements nodee
     }
     // ------------------------------ Delete_Edge ---------------------------------------------------------
 
-    public void Delete_eadge() {
+ public void Delete_eadge()
+    {
+        try
+        {
         ///// alert  return to this function handling if the edge if is already created (tomorrow);
-        try {
-            System.out.println("enter the first node, second node ");
-            Scanner input = new Scanner(System.in);
-            firstnode = input.nextInt();
-            secondnode = input.nextInt();
-            firstnode--;
-            secondnode--;
-            adj_graph[firstnode][secondnode] = -1;
-        } catch (Exception e) {
-            System.out.println("you must enter positive numbers for nodes!!!!!!!!");
+        System.out.println("enter the first node, second node ");
+        Scanner input = new Scanner(System.in);
+        firstnode=input.nextInt();
+        secondnode = input.nextInt();
+        firstnode--;
+        secondnode--;
+        if ((checkofnode[firstnode] == false || checkofnode[secondnode] == false) || (checkofdeletednode[firstnode] == true || checkofdeletednode[secondnode] == true)){
+            System.out.println("those nodes aren't created or deleted !! ");
         }
+        else{
+            adj_graph [firstnode][secondnode] = 0;
+        }
+        }
+        catch(Exception e)
+        {
+           System.out.println("you must enter positive numbers for nodes!!!!!!!!");
+        }
+        
     }
 // ----------------------- showChildren --------------------------
 
-    public void displayChildren() {
-        ///// alert  return to this function handling if the edge if is already created (tomorrow);
-        try {
-            System.out.println("Enter node value to show its childrens.");
-            int node = input.nextInt();
-            if (checkofnode[node - 1] == true && checkofdeletednode[node - 1] == false) {
-                for (int i = 0; i < nodenumber; i++) {
-                    if (adj_graph[node - 1][i] > 0) {
-                        System.out.println((i + 1) + " ");
-                    }
-//     else if (adj_graph[node - 1][i] == 0)
-//    {
-//        System.out.println("This node isn't created or deleted!!");
-//        break;
-//    }
-                }
-            } else {
-                System.out.println("This node isn't created or deleted!!");
+ public void displayChildren()
+{
+    int counter = 0;
+     ///// alert  return to this function handling if the edge if is already created (tomorrow);
+    Scanner input = new Scanner(System.in);
+    System.out.println("Enter node value to show its childrens.");
+    int node = input.nextInt();
+    if (checkofnode[node - 1] == true && checkofdeletednode[node - 1] == false)
+    {
+        for (int i = 0; i < nodenumber; i++)
+        {
+            if (adj_graph[node - 1][i] > 0)
+            {
+                counter++;
             }
-        } catch (Exception e) {
-            System.out.println("you must enter positive numbers for nodes!!!!!!!!");
         }
+        for (int i = 0; i < nodenumber; i++)
+        {
+            if (adj_graph[i][node - 1] > 0)
+            {
+                counter++;
+            }
+        }
+        if(counter <= 1){
+            System.out.println("It has " + counter + " children ");
+        }
+        else{
+            System.out.println("It has " + counter + " childrens ");
+        }
+        
+        counter = 0;
     }
+    else
+    {
+        System.out.println("This node isn't created or deleted!!");
+    }
+}
 
     @Override
     public void add_node()

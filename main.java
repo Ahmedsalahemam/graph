@@ -64,7 +64,7 @@ public class main {
                     new_graph.dijkstra(root - 1, distination);
                     break;
                 case 8:
-                    neweadge.displaymatrix();
+                    neweadge.displayChildren();
                     break;
                 case 9:
                     System.out.println("Enter any node to be root of traverse algorithm");
