@@ -19,14 +19,17 @@ public class nodeee implements nodee
             if (checkofnode[node_value - 2] == false) {
                 System.out.println("The node before this node isn't created yet!! ");
             } else if (checkofnode[node_value - 1] == false) {
-                if (checkofdeletednode[node_value - 1] == true) {
+                if (checkofdeletednode[node_value - 1] == true) 
+                {
                     checkofnode[node_value - 1] = true;
                     checkofdeletednode[node_value - 1] = false;
                     for (int i = 0; i < nodenumber; i++) {
                         adj_graph[i][node_value - 1] = 0;
                         adj_graph[node_value - 1][i] = 0;
                     }
-                } else {
+                }
+                else 
+                {
                     nodenumber++;
                     checkofnode[node_value - 1] = true;
                 }

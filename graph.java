@@ -8,12 +8,13 @@ public class graph
     public int[] visited = new int[1000];
     private boolean[] spt = new boolean[1000];
     protected static int[][] adj_graph = new int[1000][1000];
-    protected static int nodenumber, eadges, num_of_connected_nodes = 0;
+    protected static int nodenumber;
+    protected int eadges;
 
     //////--------------------------------- this is constructor for the class  -------------------------------------------
     public graph(int nodenumber, int eadges) {
         graph.nodenumber = nodenumber;
-        graph.eadges = eadges;
+        this.eadges = eadges;
     }
     //----------------------- this method to clear the adj_matrix of graph
     public void clear() {
@@ -80,7 +81,7 @@ public class graph
             for (int i = 0; i < nodenumber; i++) {
                 int node1 = minimumnode(spt, distance);
                 spt[node1] = true;
-                //////////////كلم هشام علي يساوي الي في اللوب
+                
                 for (int node2 = 0; node2 < nodenumber; node2++) {
                     if (adj_graph[node1][node2] > 0 && adj_graph[node1][node2] != INFINITY) {
                         if (spt[node2] == false) {
