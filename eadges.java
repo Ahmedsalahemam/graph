@@ -81,7 +81,7 @@ public class eadges extends graph implements nodee
             System.out.println("those nodes aren't created or deleted !! ");
         }
         else{
-            adj_graph [firstnode][secondnode] = 0;
+            adj_graph [firstnode][secondnode] = -1;
         }
         }
         catch(Exception e)
